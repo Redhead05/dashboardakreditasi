@@ -1,0 +1,16 @@
+:root {
+  --color_banpem_primary: #D3D3D3;
+  --color_banpem_secondary: #A9A9A9;
+  --color_banpem_active: #3CB371;
+  --color_banpem_purple: #EE82EE;
+  --color_banpem_blue: 	#87CEFA;
+  --color_banpem_red:	#FA8072;
+  --color_banpem_gray: 	#808080;
+  --color_banpem_white: #FFFFFF;
+  --color_dikbud_1: #003060;
+  --color_dikbud_2: #68BBE3;
+  --color_dikbud_3: #297BBF;
+  --color_dikbud_4: #213240;
+  --color_dikbud_5: #41729F;
+  --color_neutral_90: #E7E0EC;
+}

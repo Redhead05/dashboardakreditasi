@@ -20,7 +20,7 @@ Route::get('/', [DashboardController::class, 'index']);
 
 //laravel stisla
 
-Route::redirect('/', '/dashboard-general-dashboard');
+// Route::redirect('/', '/dashboard-general-dashboard');
 
 // Dashboard
 Route::get('/dashboard-general-dashboard', function () {

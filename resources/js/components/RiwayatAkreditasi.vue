@@ -2,7 +2,7 @@
   <div class="m-4">
     <div class="d-flex justify-content-between">
       <div class="title">Riwayat Akreditasi</div>
-      <div class="d-flex flex-row justify-content-end gap-2 w-25">
+      <div class="d-flex flex-row justify-content-                                     end gap-2 w-25">
         <select class="form-select">
           <option selected>Status Akreditasi</option>
           <option value="1">One</option>
@@ -33,21 +33,21 @@
     },
     xaxis: {
       categories: [
-        '2008', 
-        '2009', 
-        '2010', 
+        '2008',
+        '2009',
+        '2010',
         '2011',
-        '2012', 
-        '2013', 
-        '2014', 
+        '2012',
+        '2013',
+        '2014',
         '2015',
-        '2016', 
+        '2016',
         '2017',
-        '2018', 
-        '2019', 
+        '2018',
+        '2019',
         '2020',
         '2021',
-        '2022', 
+        '2022',
       ]
     },
     colors: ['var(--color_dikbud_3)'],
@@ -55,20 +55,20 @@
   const series = [{
     name: 'series-1',
     data: [
-      60000, 
-      80000, 
-      60000, 
-      40000,
-      80000, 
-      60000, 
-      80000, 
+      60000,
       80000,
-      60000, 
-      60000, 
-      80000, 
+      60000,
+      40000,
+      80000,
+      60000,
+      80000,
+      80000,
+      60000,
+      60000,
+      80000,
       100000,
-      40000, 
-      60000, 
+      40000,
+      60000,
       80000,
     ]
   }]

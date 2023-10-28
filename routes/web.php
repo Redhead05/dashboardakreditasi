@@ -16,11 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [DashboardController::class, 'index']);
+Route::get('/capaian-nasional', [DashboardController::class, 'CapaianNasional']);
 
 
 //laravel stisla
 
-Route::redirect('/', '/dashboard-general-dashboard');
+// Route::redirect('/', '/dashboard-general-dashboard');
 
 // Dashboard
 Route::get('/dashboard-general-dashboard', function () {

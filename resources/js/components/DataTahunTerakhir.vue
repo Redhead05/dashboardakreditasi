@@ -106,7 +106,7 @@
         },
       },
     },
-  } 
+  }
   const seriesRadialBar1 = [80.2]
   const chartOptionsRadialBar2 = {
     colors: ['var(--color_dikbud_3)'],
@@ -127,7 +127,7 @@
         },
       },
     },
-  } 
+  }
   const seriesRadialBar2 = [20.8]
   const chartOptionsDonut = {
     dataLabels: {
@@ -197,3 +197,4 @@
     margin: 0;
   }
 </style>
+

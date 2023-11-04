@@ -24,7 +24,7 @@
             <div class="row ">
               <div class="col separator_col px-4">
                 <h5 class="card-title mb-1">Capaian Nasional</h5>
-                <h5 class="card3_desc mb-4">Total 44.094</h5>
+                <h5 class="card3_desc mb-4">{{ data }}</h5>
                 <apexchart width="500" type="bar" :options="chartOptions" :series="series"></apexchart>
               </div>
               <div class="col mx-4">
@@ -70,6 +70,11 @@
 </template>
 
 <script lang="ts" setup>
+
+    const props = defineProps({
+            data: Array
+        })
+
   const chartOptions = {
     xaxis: {
       categories: ['A', 'B', 'C', 'TT',]

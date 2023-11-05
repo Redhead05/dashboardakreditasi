@@ -13,13 +13,12 @@ class DashboardController extends Controller
     {
         return Inertia::render('dashboard');
     }
-    public function CapaianNasional()
+    public function CapaianNasional(Request $request)
     {
-        $data = RefProvinsi::sum('kuota');
-        // dd($data);
-        return Inertia::render('dashboard', [
-            'data' => $data
-        ]);
+        dd($request->year);
+        $datas = RefProvinsi::sum('kuota');
+
+        return Inertia::render('dashboard', compact('datas'));
     }
 }
 

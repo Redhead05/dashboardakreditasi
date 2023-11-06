@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\ref_provinsi;
 use App\Models\HasilAkreditasi;
-use App\Models\RefProvinsi;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -16,7 +15,7 @@ class DashboardController extends Controller
     public function CapaianNasional(Request $request)
     {
         dd($request->year);
-        $datas = RefProvinsi::sum('kuota');
+        $datas = ref_provinsi::sum('kuota');
 
         return Inertia::render('dashboard', compact('datas'));
     }

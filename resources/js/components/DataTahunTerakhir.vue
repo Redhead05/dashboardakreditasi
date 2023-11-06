@@ -24,7 +24,7 @@
             <div class="row ">
               <div class="col separator_col px-4">
                 <h5 class="card-title mb-1">Capaian Nasional</h5>
-                <h5 class="card3_desc mb-4">50.000 | {{ datas }}</h5>
+                <h5 class="card3_desc mb-4">{{ datas }}</h5>
                 <apexchart width="500" type="bar" :options="chartOptions" :series="series"></apexchart>
               </div>
               <div class="col mx-4">
@@ -78,7 +78,7 @@ import { onMounted } from 'vue';
             datas : Array,
         })
   //solusi lain selain props bisa pakai stateManagement
-  
+
   onMounted(() => {
     console.log(props.datas);
     // console.log(props.sumKuotas);

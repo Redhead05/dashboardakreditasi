@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('ref_provinsi', function (Blueprint $table) {
-            $table->foreignId(('id_tahun_akreditasi'))->after('id_provinsi')->constrained('ref_tahun_akreditasis');
+            $table->foreignId('id_tahun_akreditasi')
+            ->after('id_provinsi')
+            ->references('id_tahun_akreditasi')
+            ->on('ref_tahun_akreditasis');
         });
     }
 

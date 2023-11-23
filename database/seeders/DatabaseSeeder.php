@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\RefProvinsi;
+use App\Models\RefTahunAkreditasi;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +19,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        
+        RefTahunAkreditasi::factory()->count(10)->create();
+        RefProvinsi::factory()
+            ->count(100)
+            ->has(RefTahunAkreditasi::factory())
+            ->create();
     }
 }

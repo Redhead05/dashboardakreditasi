@@ -10,10 +10,10 @@
           <option value="3">Three</option>
         </select>
         <select class="form-select">
-          <option selected>2022</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option selected>2018</option>
+          <option value="1">2019</option>
+          <option value="2">2020</option>
+          <option value="3">2021</option>
         </select>
       </div>
     </div>
@@ -24,7 +24,7 @@
             <div class="row ">
               <div class="col separator_col px-4">
                 <h5 class="card-title mb-1">Capaian Nasional</h5>
-                <h5 class="card3_desc mb-4">Total 44.094</h5>
+                <h5 class="card3_desc mb-4">{{ datas }}</h5>
                 <apexchart width="500" type="bar" :options="chartOptions" :series="series"></apexchart>
               </div>
               <div class="col mx-4">
@@ -69,7 +69,21 @@
   </div>
 </template>
 
+
 <script lang="ts" setup>
+
+import { onMounted } from 'vue';
+
+  const props = defineProps({
+            datas : Array,
+        })
+  //solusi lain selain props bisa pakai stateManagement
+
+  onMounted(() => {
+    console.log(props.datas);
+    // console.log(props.sumKuotas);
+  })
+
   const chartOptions = {
     xaxis: {
       categories: ['A', 'B', 'C', 'TT',]

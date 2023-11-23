@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\ref_provinsi;
 use App\Models\HasilAkreditasi;
 use App\Models\RefProvinsi;
 use Illuminate\Http\Request;
@@ -13,13 +13,19 @@ class DashboardController extends Controller
     {
         return Inertia::render('dashboard');
     }
-    public function CapaianNasional()
+    public function CapaianNasional(Request $request)
     {
-        $data = RefProvinsi::sum('kuota');
-        // dd($data);
-        return Inertia::render('dashboard', [
-            'data' => $data
-        ]);
+        // dd($request->year);
+        $datas = RefProvinsi::sum('kuota');
+
+        return Inertia::render('dashboard', compact('datas'));
+    }
+    public function filter(Request $request)
+    {
+        $refprovinsi = RefProvinsi::find(1);
+        $yearFilter = $refprovinsi->id_tahun_akreditasi;
+
+        return Inertia::render('dashboard', compact('yearFilter'));
     }
 }
 

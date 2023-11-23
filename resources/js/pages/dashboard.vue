@@ -6,14 +6,24 @@
     import RiwayatAkreditasi from '@/components/RiwayatAkreditasi.vue';
     import PerbandinganData from '@/components/PerbandinganData.vue';
     import BottomNavBar from '@/components/BottomNavBar.vue';
+    // import { onMounted } from 'vue';
+
+    const props = defineProps({
+            datas : Array,
+        })
+
+  //   onMounted(() => {
+  //   console.log(props.datas);
+  //   console.log(props.sumKuotas);
+  // })
 </script>
 
 <template>
   <div class="flex flex-column">
     <TopNavBar />
     <Search />
-    <DataTahunTerakhir />
-    <DataTahunBerjalan />
+    <DataTahunTerakhir :datas="datas"/>
+    <DataTahunBerjalan  />
     <RiwayatAkreditasi />
     <PerbandinganData />
     <BottomNavBar />

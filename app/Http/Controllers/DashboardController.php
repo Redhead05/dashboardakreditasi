@@ -9,33 +9,15 @@ use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         return Inertia::render('dashboard');
     }
     public function CapaianNasional(Request $request)
     {
-        // dd($request->year);
+        //dump($request->year);
         $datas = RefProvinsi::sum('kuota');
 
         return Inertia::render('dashboard', compact('datas'));
     }
-    public function filter(Request $request)
-    {
-        $refprovinsi = RefProvinsi::find(1);
-        $yearFilter = $refprovinsi->id_tahun_akreditasi;
-
-        return Inertia::render('dashboard', compact('yearFilter'));
-    }
 }
-
-
-
-
-
-
-// $data = HasilAkreditasi::where('tahun_akreditasi', '2008')
-//         ->groupBy('tahun_akreditasi')
-//         ->get();
-
-//         dd($data);

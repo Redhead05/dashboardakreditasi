@@ -15,6 +15,7 @@ class RefProvinsi extends Model
     public function RefTahunAkreditasi(){
         return $this->belongsTo(RefTahunAkreditasi::class, 'id_tahun_akreditasi', 'id_tahun_akreditasi');
     }
+    
     public function HasilAkreditasi(){
         return $this->hasMany(HasilAkreditasi::class);
     }

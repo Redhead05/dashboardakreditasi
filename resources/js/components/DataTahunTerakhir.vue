@@ -9,11 +9,11 @@
           <option value="2">Two</option>
           <option value="3">Three</option>
         </select>
-        <select class="form-select">
-          <option selected>2018</option>
-          <option value="1">2019</option>
-          <option value="2">2020</option>
-          <option value="3">2021</option>
+        <select @change="selectYear" class="form-select">
+          <option>2018</option>
+          <option>2019</option>
+          <option>2020</option>
+          <option>2021</option>
         </select>
       </div>
     </div>
@@ -73,6 +73,8 @@
 <script lang="ts" setup>
 
 import { onMounted } from 'vue';
+import { router } from '@inertiajs/vue3';
+
 
   const props = defineProps({
             datas : Array,
@@ -178,6 +180,14 @@ import { onMounted } from 'vue';
     // {value:5,total:'4.983',desc:'Reakreditasi'},
     80,15,5
   ];
+
+  const selectYear = (event:any) => {
+    const url = window.location.origin;
+    // console.log(event.target.value, url);
+    router.get(url, {
+      year: event.target.value //query param
+    }, {preserveState: true});
+  }
 </script>
 
 <style scoped>

@@ -13,6 +13,10 @@ class DashboardController extends Controller
     {
         return Inertia::render('dashboard');
     }
+
+}
+
+
 //     public function CapaianNasional(Request $request)
 //     {
 //         //dump($request->year);
@@ -20,4 +24,3 @@ class DashboardController extends Controller
 
 //         return Inertia::render('dashboard', compact('datas'));
 //     }
-}

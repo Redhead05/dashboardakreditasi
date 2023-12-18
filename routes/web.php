@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [DashboardController::class, 'index']);
-Route::get('/', [DashboardController::class, 'CapaianNasional']);
+// Route::get('/', [DashboardController::class, 'CapaianNasional']);
 // Route::get('/filter', [DashboardController::class, 'filter']);
 
 

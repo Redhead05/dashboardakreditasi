@@ -13,7 +13,7 @@
         "APP_NAME": "Laravel Vercel",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "https://laravel-vercel.vercel.app",
+        "APP_URL": "https://dashboardakreditasi.vercel.app",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
@@ -37,11 +37,7 @@
         "QUEUE_CONNECTION":"sync",
         "SESSION_LIFETIME":"120",
 
-        "MEMCACHED_HOST":"https://laravel-vercel.vercel.app",
-
-        "REDIS_HOST":"https://laravel-vercel.vercel.app",
-        "REDIS_PASSWORD":null,
-        "REDIS_PORT":"6379",
+        "MEMCACHED_HOST":"https://dashboardakreditasi.vercel.app",
 
         "MAIL_MAILER":"smtp",
         "MAIL_HOST":"mailpit",

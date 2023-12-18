@@ -3,7 +3,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "tsc"
+        "build": "vite build"
     },
     "devDependencies": {
         "@tsconfig/node18": "^18.2.2",

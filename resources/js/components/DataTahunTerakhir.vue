@@ -4,10 +4,10 @@
       <div class="title">Data Tahun Terakhir</div>
       <div class="d-flex flex-row justify-content-end gap-2 w-25">
         <select class="form-select">
-          <option selected>Semua</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option selected>Provinsi</option>
+          <option>Prov. Jawa Timur</option>
+          <option>Prov. Jawa Tengah</option>
+          <option>Prov. Jawa Barat</option>
         </select>
         <select @change="selectYear" class="form-select">
           <option>2018</option>

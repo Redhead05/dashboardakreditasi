@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ref_provinsi', function (Blueprint $table) {
-            $table->id('id_provinsi')->unique();
+        $table->id('id_provinsi')->unique();
             $table->string('nama', 100);
             $table->string('slug', 200);
             $table->integer('kuota')->default(0);

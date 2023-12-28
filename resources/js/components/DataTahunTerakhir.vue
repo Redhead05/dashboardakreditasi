@@ -54,6 +54,50 @@
                                 </div>
                             </div>
                         </div>
+
+  <div class="m-4">
+    <div class="d-flex justify-content-between">
+      <div class="title">Data Tahun Terakhir</div>
+      <div class="d-flex flex-row justify-content-end gap-2 w-25">
+        <select class="form-select">
+          <option selected>Provinsi</option>
+          <option>Prov. Jawa Timur</option>
+          <option>Prov. Jawa Tengah</option>
+          <option>Prov. Jawa Barat</option>
+        </select>
+        <select @change="selectYear" class="form-select">
+          <option>2018</option>
+          <option>2019</option>
+          <option>2020</option>
+          <option>2021</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-sm-7">
+        <div class="card">
+          <div class="card-body">
+            <div class="row ">
+              <div class="col separator_col px-4">
+                <h5 class="card-title mb-1">Capaian Nasional</h5>
+                <h5 class="card3_desc mb-4">40.000</h5>
+                <apexchart width="500" type="bar" :options="chartOptions" :series="series"></apexchart>
+              </div>
+              <div class="col mx-4">
+                <div class="d-flex flex-column">
+                  <div class="d-flex flex-row align-items-center my-4">
+                    <Icon class="card1_circle_icon" icon="bxs:school" color="#FFFFFF" width="90" height="90"/>
+                    <div class="mx-4 d-flex flex-column">
+                      <div class="card3_num">54.028</div>
+                      <div class="card3_desc">Total Populasi</div>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center my-4">
+                    <apexchart width="210" type="radialBar" :options="chartOptionsRadialBar1" :series="seriesRadialBar1"></apexchart>
+                    <div class="mx-4 d-flex flex-column">
+                      <div class="card3_num">44.094</div>
+                      <div class="card3_desc">Di Akreditasi</div>
+
                     </div>
                 </div>
             </div>

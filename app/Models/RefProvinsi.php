@@ -9,14 +9,21 @@ class RefProvinsi extends Model
 {
     use HasFactory;
 
-    protected $table = 'Ref_Provinsi';
-    protected $primaryKey = 'id_provinsi';
+    protected $fillable = [
+        'id_provinsi',
+        'nama',
+        'slug',
+        'alamat',
+        'ketua',
+    ];
 
-    public function RefTahunAkreditasi(){
-        return $this->belongsTo(RefTahunAkreditasi::class, 'id_tahun_akreditasi', 'id_tahun_akreditasi');
+    public function RefKota(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(RefKota::class, 'id_provinsi', 'id_provinsi');
     }
-    
-    public function HasilAkreditasi(){
-        return $this->hasMany(HasilAkreditasi::class);
+
+    public function HasilAkreditasi(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(HasilAkreditasi::class, 'id_provinsi', 'id_provinsi');
     }
 }

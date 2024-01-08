@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('hasil_akreditasi', function (Blueprint $table) {
+        Schema::create('hasil_akreditasis', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->string('sekolah_id', 38)->nullable();
             $table->string('npsn', 22)->nullable();
             $table->string('nama_lembaga', 170)->nullable();
+            $table->integer('id_satuan')->nullable();
             $table->string('satuan', 6)->nullable();
             $table->string('program', 44)->nullable();
             $table->string('alamat', 1319)->nullable();
@@ -32,14 +32,6 @@ return new class extends Migration
             $table->integer('tahun_akreditasi')->nullable();
             $table->string('tanggal_sk', 16)->nullable();
             $table->string('no_sk', 50)->nullable();
-            $table->integer('std1')->nullable();
-            $table->integer('std2')->nullable();
-            $table->integer('std3')->nullable();
-            $table->integer('std4')->nullable();
-            $table->integer('std5')->nullable();
-            $table->integer('std6')->nullable();
-            $table->integer('std7')->nullable();
-            $table->integer('std8')->nullable();
             $table->integer('total_nilai')->nullable();
             $table->string('status', 13)->nullable();
             $table->string('no_sertifikat', 50)->nullable();
@@ -49,7 +41,7 @@ return new class extends Migration
             $table->dateTime('updated_at')->nullable();
             $table->string('keterangan')->nullable();
 
-            $table->index(['status', 'sekolah_id', 'npsn', 'nama_lembaga', 'satuan', 'program', 'id_kel_desa', 'id_kecamatan', 'id_kabkota', 'id_provinsi', 'tahun_akreditasi'], 'id');
+            $table->index(['status', 'npsn', 'nama_lembaga', 'satuan', 'program', 'id_kel_desa', 'id_kecamatan', 'id_kabkota', 'id_provinsi', 'tahun_akreditasi'], 'id');
         });
     }
 

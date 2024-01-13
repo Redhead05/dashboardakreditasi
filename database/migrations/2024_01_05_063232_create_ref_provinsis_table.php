@@ -14,13 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ref_provinsis', function (Blueprint $table) {
-            $table->integer('id_provinsi')->primary();
+            $table->bigIncrements('id_provinsi');
             $table->string('nama', 100);
-            $table->string('slug', 200);
-            $table->text('alamat')->nullable();
-            $table->string('ketua', 200)->nullable();
-            $table->dateTime('created_at')->nullable();
-            $table->dateTime('updated_at')->nullable();
+            $table->string('slug', 200)->nullable();
+            $table->timestamps();
         });
     }
 

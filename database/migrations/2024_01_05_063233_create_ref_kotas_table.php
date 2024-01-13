@@ -14,10 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ref_kotas', function (Blueprint $table) {
-            $table->integer('id_kota');
-            $table->integer('id_provinsi');
+            $table->id('id_kota');
+            $table->unsignedBigInteger('id_provinsi');
             $table->string('nama', 100);
-            $table->string('slug', 200);
+            $table->string('slug', 200)->nullable();
+
+            $table->foreign('id_provinsi')->references('id_provinsi')->on('ref_provinsis');
+            $table->timestamps();
         });
     }
 

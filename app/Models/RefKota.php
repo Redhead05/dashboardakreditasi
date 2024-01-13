@@ -9,16 +9,22 @@ class RefKota extends Model
 {
     use HasFactory;
 
-    protected $fields = [
-        'id_kota',
-        'id_provinsi',
-        'nama',
-        'slug',
-    ];
+
+    protected $table = 'ref_kotas';
+//    protected $fields = [
+//        'id_kota',
+//        'id_provinsi',
+//        'nama',
+//        'slug',
+//    ];
 
     public function RefProvinsi(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(RefProvinsi::class, 'id_provinsi', 'id_provinsi');
+    }
+    public function RefKecamatan(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->HasMany(RefKecamatan::class, 'id_kota', 'id_kota');
     }
 
     public function HasilAkreditasi(): \Illuminate\Database\Eloquent\Relations\HasMany

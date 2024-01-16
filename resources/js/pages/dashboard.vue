@@ -11,10 +11,11 @@
     const props = defineProps({
             // datas : Array,
         chartGrading : Array,
+        populasis: Array,
     })
 
 onMounted(() => {
-    // console.log(props.chartGrading);
+    console.log(props.chartGrading);
     // console.log(props.sumKuotas);
   })
 </script>
@@ -23,7 +24,10 @@ onMounted(() => {
   <div class="flex flex-column">
     <TopNavBar />
     <Search />
-    <DataTahunTerakhir :datas="chartGrading"/>
+    <DataTahunTerakhir
+        :datas="chartGrading"
+        :populasis="populasis"
+    />
     <DataTahunBerjalan  />
     <RiwayatAkreditasi />
     <PerbandinganData />

@@ -10,10 +10,10 @@
           <option value="3">Three</option>
         </select>
           <select @change="selectYear" class="form-select">
-              <option>2018</option>
               <option>2019</option>
               <option>2020</option>
               <option>2021</option>
+              <option>2022</option>
           </select>
       </div>
     </div>
@@ -32,7 +32,7 @@
                   <div class="d-flex flex-row align-items-center margin_data_jumlah_asesi mb-3">
                     <Icon class="card1_circle_icon" icon="bxs:school" color="#FFFFFF" width="100" height="100"/>
                     <div class="mx-4 d-flex flex-column">
-                      <div class="card3_num">54.028</div>
+                      <div class="card3_num">123</div>
                       <div class="card3_desc">Total Populasi</div>
                     </div>
                   </div>
@@ -100,11 +100,12 @@
 
   const props = defineProps({
       datas : Array,
+      populasis: Array,
   })
 
-  onMounted(() => {
-      // console.log(props.datas);
-  })
+  // onMounted(() => {
+  //     // console.log(props.chartPopulasi);
+  // })
 
   const widthChart = '100%';
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\HasilAkreditasi;
+use App\Models\Populasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
@@ -14,7 +15,7 @@ class DashboardController extends Controller
         $capaianNasional = HasilAkreditasi::selectRaw(
             'satuan, status, COUNT(*) as count'
         )->groupBy('satuan', 'status')
-        ->where('tahun_akreditasi', $request->year ?? '2008')
+        ->where('tahun_akreditasi', $request->year ?? '2019')
         ->get();
 //        dump($capaianNasional->toArray());
         if ($capaianNasional->isEmpty()) {
@@ -49,18 +50,20 @@ class DashboardController extends Controller
             $result['data'] = array_values($result['data']);
         }
 
+        //total_populasi
+        $populasis = Populasi::selectRaw(
+            'tahun, SUM(total_populasi) as jumlah'
+        )->groupBy('tahun');
+        if ($request->year) {
+            $populasis->where('tahun', $request->year);
+        }
+
+//        dd($populasis->get()->toArray());
+
+
         return Inertia::render('dashboard', [
-            'chartGrading' => $result
+            'chartGrading' => $result,
+            'populasis' => $populasis,
         ]);
-    }
-    public function getChartData()
-    {
-        $chartData = HasilAkreditasi::select(DB::raw('count(*) as count'), 'status')
-            ->groupBy('status')
-            ->get();
-
-        dd($chartData->toJson());
-
-        return Inertia::render('dashboard', compact('chartData'));
     }
 }

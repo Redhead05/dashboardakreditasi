@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('tahun');
             $table->string('total_populasi');
-            $table->string('akreditasi');
-            $table->string('belum_akreditasi');
 
             $table->timestamps();
         });

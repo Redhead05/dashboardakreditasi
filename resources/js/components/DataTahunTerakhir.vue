@@ -32,14 +32,17 @@
                   <div class="d-flex flex-row align-items-center margin_data_jumlah_asesi mb-3">
                     <Icon class="card1_circle_icon" icon="bxs:school" color="#FFFFFF" width="100" height="100"/>
                     <div class="mx-4 d-flex flex-column">
-                      <div class="card3_num">123</div>
+<!--                      <div class="card3_num">{{populasis}}</div>-->
+                      <div class="card3_num" v-for="(populasi, index) in populasis" :key="index">
+                        {{ populasi.total_populasi }}
+                      </div>
                       <div class="card3_desc">Total Populasi</div>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center margin_data_jumlah_asesi">
                     <apexchart :width="widthRadialBar" type="radialBar" :options="chartOptionsRadialBar1" :series="seriesRadialBar1"></apexchart>
                     <div class="d-flex flex-column desc_data_jumlah_asesi">
-                      <div class="card3_num">44.094</div>
+                      <div class="card3_num">{{ totalakreditasi }}</div>
                       <div class="card3_desc">Di Akreditasi</div>
                     </div>
                   </div>
@@ -101,10 +104,12 @@
   const props = defineProps({
       datas : Array,
       populasis: Array,
+      totalakreditasi: Array,
+      // belumakreditasi: Array,
   })
 
   // onMounted(() => {
-  //     // console.log(props.chartPopulasi);
+  //       console.log(props.populasis)
   // })
 
   const widthChart = '100%';
@@ -198,7 +203,7 @@
       const url = new URL(currentUrl);
       url.searchParams.set('year', selectedYear);
       window.location.href =  url.toString();
-      // window.history.replaceState({}, '', url.toString());
+      window.history.replaceState({}, '', url.toString());
   };
 </script>
 

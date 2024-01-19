@@ -51,19 +51,26 @@ class DashboardController extends Controller
         }
 
         //total_populasi
-        $populasis = Populasi::selectRaw(
-            'tahun, SUM(total_populasi) as jumlah'
-        )->groupBy('tahun');
-        if ($request->year) {
-            $populasis->where('tahun', $request->year);
-        }
+        $populasis = Populasi::select('tahun', 'total_populasi')
+        ->where('tahun', $request->year ?? '2019')
+        ->get();
+//
+        //total di akreditasi
+        $totalakreditasi = HasilAkreditasi::select( DB::raw('COUNT(*) as count'))
+            ->where('tahun_akreditasi', $request->year ?? '2019' )
+            ->groupBy('tahun_akreditasi')
+            ->get()->toArray();
+//
+//        //belum di akreditasi
+//        $belumakreditasi = $populasis[0]->total_populasi - $totalakreditasi[0]->count;
 
-//        dd($populasis->get()->toArray());
-
+//                dd($totalakreditasi->toArray());
 
         return Inertia::render('dashboard', [
             'chartGrading' => $result,
             'populasis' => $populasis,
+            'totalakreditasi' => $totalakreditasi,
+//            'belumakreditasi' => $belumakreditasi
         ]);
     }
 }

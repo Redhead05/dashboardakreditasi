@@ -9,13 +9,14 @@ class RefProvinsi extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'id_provinsi',
-        'nama',
-        'slug',
-        'alamat',
-        'ketua',
-    ];
+    protected $table = 'ref_provinsis';
+//    protected $fillable = [
+//        'id_provinsi',
+//        'nama',
+//        'slug',
+//        'alamat',
+//        'ketua',
+//    ];
 
     public function RefKota(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

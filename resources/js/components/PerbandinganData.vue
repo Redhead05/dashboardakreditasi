@@ -29,11 +29,10 @@
                   <div class="card3_desc">Belum di Akreditasi</div>
                 </div>
               </div>
-              
             </div>
-            <div class="d-flex flex-row align-items-center justify-content-center">
-              <button type="button" class="btn btn-light mt-4">Ganti Data</button>
-            </div>
+<!--            <div class="d-flex flex-row align-items-center justify-content-center">-->
+<!--              <button type="button" class="btn btn-light mt-4">Ganti Data</button>-->
+<!--            </div>-->
           </div>
         </div>
       </div>
@@ -102,7 +101,7 @@
         },
       },
     },
-  } 
+  }
   const seriesRadialBar1 = [80.2]
   const chartOptionsRadialBar2 = {
     colors: ['var(--color_dikbud_3)'],
@@ -123,7 +122,7 @@
         },
       },
     },
-  } 
+  }
   const seriesRadialBar2 = [20.8]
 </script>
 

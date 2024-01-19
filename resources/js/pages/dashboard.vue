@@ -6,24 +6,32 @@
     import RiwayatAkreditasi from '@/components/RiwayatAkreditasi.vue';
     import PerbandinganData from '@/components/PerbandinganData.vue';
     import BottomNavBar from '@/components/BottomNavBar.vue';
-    import { onMounted } from 'vue';
+    import {onMounted} from "vue";
 
     const props = defineProps({
-            // datas : Array,
         chartGrading : Array,
+        populasis: Array,
+        totalakreditasi: Array,
+        // belumakreditasi: Array,
     })
 
-onMounted(() => {
-    // console.log(props.chartGrading);
-    // console.log(props.sumKuotas);
-  })
+// onMounted(() => {
+//     // console.log(props.chartGrading);
+//     // console.log(props.sumKuotas);
+//     console.log(props.populasis);
+//   })
+
 </script>
 
 <template>
   <div class="flex flex-column">
     <TopNavBar />
     <Search />
-    <DataTahunTerakhir :datas="chartGrading"/>
+    <DataTahunTerakhir
+        :datas="chartGrading"
+        :populasis="populasis"
+        :totalakreditasi="totalakreditasi"
+    />
     <DataTahunBerjalan  />
     <RiwayatAkreditasi />
     <PerbandinganData />

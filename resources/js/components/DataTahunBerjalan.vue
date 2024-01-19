@@ -15,7 +15,7 @@
             <div class="col-sm-4">
                 <div class="card position-relative">
                     <div class="dataLabels_chart d-flex flex-column align-items-center justify-content-center">
-                        <div class="dataLabels_Total">{{total[0]}}</div>
+                        <div class="dataLabels_Total">123</div>
                         <div class="dataLabels_Lembaga">Lembaga</div>
                     </div>
                     <apexchart :width="width" type="radialBar" :options="chartOptionsRadialBar1" :series="seriesRadialBar1"></apexchart>

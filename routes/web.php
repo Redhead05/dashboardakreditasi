@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index']);
 //Route::get('/', [DashboardController::class, 'CapaianNasional']);
-Route::get('/test', [DashboardController::class, 'getChartData']);
+//Route::get('/test', [DashboardController::class, 'populasi']);
 
 // Route::get('/filter', [DashboardController::class, 'filter']);
 

@@ -10,9 +10,8 @@
 
     const props = defineProps({
         chartGrading : Array,
-        populasis: Array,
-        totalakreditasi: Array,
-        // belumakreditasi: Array,
+        populasis: Number,
+        diakreditasis: Number
     })
 
 // onMounted(() => {
@@ -30,7 +29,7 @@
     <DataTahunTerakhir
         :datas="chartGrading"
         :populasis="populasis"
-        :totalakreditasi="totalakreditasi"
+        :diakreditasis="diakreditasis"
     />
     <DataTahunBerjalan  />
     <RiwayatAkreditasi />

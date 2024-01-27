@@ -11,4 +11,10 @@ class Populasi extends Model
 
     protected $table ='populasis';
 
+    public function getTotalPopulasiAttribute($value)
+    {
+        return number_format($value, 0,'','.');
+    }
+
+
 }

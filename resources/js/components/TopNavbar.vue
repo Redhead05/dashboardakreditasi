@@ -9,7 +9,9 @@
           </li>
           <li class="nav-item d-flex flex-row align-items-center">
             <Icon icon="bxs:data" />
-            <a class="nav-link" href="#">Data</a>
+            <a class="nav-link">
+                <Link href="/dataProvinsi">Data</Link>
+            </a>
           </li>
           <li class="nav-item d-flex flex-row align-items-center">
             <Icon icon="bxs:report" />
@@ -26,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-
+    import { Link } from '@inertiajs/vue3';
 </script>
 <style scoped>
   nav {

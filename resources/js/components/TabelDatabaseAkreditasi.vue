@@ -32,7 +32,7 @@ import type { Icon } from '@iconify/vue';
                             <th>
                                 <div class="d-flex flex-row align-items-center gap-2">
                                     <div>
-                                        NPSN 
+                                        NPSN
                                     </div>
                                     <div class="d-flex flex-col align-items-center">
                                         <Icon icon="bx:sort" />
@@ -42,7 +42,7 @@ import type { Icon } from '@iconify/vue';
                             <th>
                                 <div class="d-flex flex-row align-items-center gap-2">
                                     <div>
-                                        Nama 
+                                        Nama
                                     </div>
                                     <div class="d-flex flex-col align-items-center">
                                         <Icon icon="bx:sort" />
@@ -52,7 +52,7 @@ import type { Icon } from '@iconify/vue';
                             <th>
                                 <div class="d-flex flex-row align-items-center gap-2">
                                     <div>
-                                        Satuan 
+                                        Satuan
                                     </div>
                                     <div class="d-flex flex-col align-items-center">
                                         <Icon icon="bx:sort" />
@@ -62,7 +62,7 @@ import type { Icon } from '@iconify/vue';
                             <th>
                                 <div class="d-flex flex-row align-items-center gap-2">
                                     <div>
-                                        Provinsi 
+                                        Provinsi
                                     </div>
                                     <div class="d-flex flex-col align-items-center">
                                         <Icon icon="bx:sort" />
@@ -72,7 +72,7 @@ import type { Icon } from '@iconify/vue';
                             <th>
                                 <div class="d-flex flex-row align-items-center gap-2">
                                     <div>
-                                        Tahun 
+                                        Tahun
                                     </div>
                                     <div class="d-flex flex-col align-items-center">
                                         <Icon icon="bx:sort" />
@@ -82,7 +82,7 @@ import type { Icon } from '@iconify/vue';
                             <th>
                                 <div class="d-flex flex-row align-items-center gap-2">
                                     <div>
-                                        Nomor SK 
+                                        Nomor SK
                                     </div>
                                     <div class="d-flex flex-col align-items-center">
                                         <Icon icon="bx:sort" />
@@ -92,7 +92,7 @@ import type { Icon } from '@iconify/vue';
                             <th>
                                 <div class="d-flex flex-row align-items-center gap-2">
                                     <div>
-                                        Status 
+                                        Status
                                     </div>
                                     <div class="d-flex flex-col align-items-center">
                                         <Icon icon="bx:sort" />
@@ -102,7 +102,7 @@ import type { Icon } from '@iconify/vue';
                             <th>
                                 <div class="d-flex flex-row align-items-center gap-2">
                                     <div>
-                                        Kadaluarsa 
+                                        Kadaluarsa
                                     </div>
                                     <div class="d-flex flex-col align-items-center">
                                         <Icon icon="bx:sort" />
@@ -160,41 +160,7 @@ import type { Icon } from '@iconify/vue';
 </template>
 
 <script lang="ts" setup>
-    const dataTableAkreditasi = [
-            {
-                "No": 1,
-                "NPSN": "P9972821",
-                "Nama": "TKS Khairani",
-                "Satuan": "PAUD",
-                "Provinsi t": "Jawa Barat",
-                "Tahun": "2019",
-                "Nomor SK": "163/BAN PAUD DAN PNF/AKR/2019",
-                "Status": "B",
-                "Kadaluarsa": "2024"
-            },
-            {
-                "No": 1,
-                "NPSN": "P9972322",
-                "Nama": "Satu Dua Tiga",
-                "Satuan": "PKBM",
-                "Provinsi t": "Jawa Barat",
-                "Tahun": "2019",
-                "Nomor SK": "163/BAN PAUD DAN PNF/AKR/2019",
-                "Status": "B",
-                "Kadaluarsa": "2024"
-            },
-            {
-                "No": 1,
-                "NPSN": "P9972121",
-                "Nama": "PAUD Cinta Bunda",
-                "Satuan": "PAUD",
-                "Provinsi t": "Jawa Barat",
-                "Tahun": "2019",
-                "Nomor SK": "163/BAN PAUD DAN PNF/AKR/2019",
-                "Status": "B",
-                "Kadaluarsa": "2024"
-            },
-        ]
+
 </script>
 
 
@@ -276,7 +242,7 @@ import type { Icon } from '@iconify/vue';
     }
     .table td {
         margin: 20px;
-        border: none; 
+        border: none;
     }
     .table tr {
         margin: 10px;

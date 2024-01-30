@@ -17,4 +17,9 @@ class Populasi extends Model
     }
 
 
+//    public function getTotalPopulasiAttribute($value)
+//    {
+//        return number_format($value, 0, ',', '.');
+//
+//    }
 }

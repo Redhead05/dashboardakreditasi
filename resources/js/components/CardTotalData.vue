@@ -3,7 +3,7 @@
         <div class="d-flex flex">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">3.030</h5>
+                    <h5 class="card-title">{{ statusa }}</h5>
                     <p class="card-text">Status Akreditasi A</p>
                 </div>
             </div>
@@ -11,7 +11,7 @@
         <div class="d-flex flex">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">1.394</h5>
+                    <h5 class="card-title">{{ statusb }}</h5>
                     <p class="card-text">Status Akreditasi B</p>
                 </div>
             </div>
@@ -19,7 +19,7 @@
         <div class="d-flex flex">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">436</h5>
+                    <h5 class="card-title">{{ statusc }}</h5>
                     <p class="card-text">Status Akreditasi C</p>
                 </div>
             </div>
@@ -27,13 +27,21 @@
         <div class="d-flex flex">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">0</h5>
+                    <h5 class="card-title">{{ statustt }}</h5>
                     <p class="card-text">Status Akreditasi TT</p>
                 </div>
             </div>
         </div>
     <!-- </div> -->
 </template>
+<script lang="ts" setup>
+    const props = defineProps({
+        statusa: Number,
+        statusb: Number,
+        statusc: Number,
+        statustt: Number,
+    })
+</script>
 
 <style>
     .card {

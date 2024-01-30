@@ -3,13 +3,32 @@ import TopNavBar from '../components/TopNavbar.vue';
 import Search from '../components/Search.vue';
 import DataProvinsi from '@/components/DataProvinsi.vue';
 import BottomNavBar from '../components/BottomNavBar.vue';
+import {onMounted} from "vue";
+
+    const props = defineProps({
+        statusa: Number,
+        statusb: Number,
+        statusc: Number,
+        statustt: Number,
+
+    })
+
+    // onMounted(() => {
+    //     console.log(props.statusa);
+    //   })
 </script>
+
 
 <template>
     <div class="flex flex-column">
         <TopNavBar />
         <Search />
-        <DataProvinsi />
+        <DataProvinsi
+            :statusa="statusa"
+            :statusb="statusb"
+            :statusc="statusc"
+            :statustt="statustt"
+        />
         <BottomNavBar />
     </div>
 </template>

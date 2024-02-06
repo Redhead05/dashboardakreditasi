@@ -21,13 +21,13 @@ return new class extends Migration
             $table->string('satuan', 6)->nullable();
             $table->string('program', 44)->nullable();
             $table->string('alamat', 1319)->nullable();
-            $table->string('id_kel_desa', 8)->nullable();
+            $table->unsignedBigInteger('id_desa');
             $table->string('kel_desa', 32)->nullable();
-            $table->string('id_kecamatan', 12)->nullable();
+            $table->unsignedBigInteger('id_kecamatan');
             $table->string('kecamatan', 100)->nullable();
-            $table->string('id_kabkota', 10)->nullable();
+            $table->bigInteger('id_kota')->unsigned();
             $table->string('kabkota', 100)->nullable();
-            $table->integer('id_provinsi')->nullable();
+            $table->bigInteger('id_provinsi')->unsigned();
             $table->string('provinsi', 100)->nullable();
             $table->integer('tahun_akreditasi')->nullable();
             $table->string('tanggal_sk', 16)->nullable();
@@ -41,7 +41,11 @@ return new class extends Migration
             $table->dateTime('updated_at')->nullable();
             $table->string('keterangan')->nullable();
 
-            $table->index(['status', 'npsn', 'nama_lembaga', 'satuan', 'program', 'id_kel_desa', 'id_kecamatan', 'id_kabkota', 'id_provinsi', 'tahun_akreditasi'], 'id');
+//            $table->index(['status', 'npsn', 'nama_lembaga', 'satuan', 'program', 'id_kel_desa', 'id_kecamatan', 'id_kabkota', 'id_provinsi', 'tahun_akreditasi'], 'id');
+            $table->foreign('id_provinsi')->references('id_provinsi')->on('ref_provinsis');
+            $table->foreign('id_kota')->references('id_kota')->on('ref_kotas');
+            $table->foreign('id_kecamatan')->references('id_kecamatan')->on('ref_kecamatans');
+            $table->foreign('id_desa')->references('id_desa')->on('ref_desas');
         });
     }
 

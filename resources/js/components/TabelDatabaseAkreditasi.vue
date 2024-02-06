@@ -32,36 +32,6 @@ import type { Icon } from '@iconify/vue';
                             <th>
                                 <div class="d-flex flex-row align-items-center gap-2">
                                     <div>
-                                        NPSN
-                                    </div>
-                                    <div class="d-flex flex-col align-items-center">
-                                        <Icon icon="bx:sort" />
-                                    </div>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="d-flex flex-row align-items-center gap-2">
-                                    <div>
-                                        Nama
-                                    </div>
-                                    <div class="d-flex flex-col align-items-center">
-                                        <Icon icon="bx:sort" />
-                                    </div>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="d-flex flex-row align-items-center gap-2">
-                                    <div>
-                                        Satuan
-                                    </div>
-                                    <div class="d-flex flex-col align-items-center">
-                                        <Icon icon="bx:sort" />
-                                    </div>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="d-flex flex-row align-items-center gap-2">
-                                    <div>
                                         Provinsi
                                     </div>
                                     <div class="d-flex flex-col align-items-center">
@@ -72,7 +42,7 @@ import type { Icon } from '@iconify/vue';
                             <th>
                                 <div class="d-flex flex-row align-items-center gap-2">
                                     <div>
-                                        Tahun
+                                        Jenis Asesi
                                     </div>
                                     <div class="d-flex flex-col align-items-center">
                                         <Icon icon="bx:sort" />
@@ -82,7 +52,7 @@ import type { Icon } from '@iconify/vue';
                             <th>
                                 <div class="d-flex flex-row align-items-center gap-2">
                                     <div>
-                                        Nomor SK
+                                        A
                                     </div>
                                     <div class="d-flex flex-col align-items-center">
                                         <Icon icon="bx:sort" />
@@ -92,7 +62,37 @@ import type { Icon } from '@iconify/vue';
                             <th>
                                 <div class="d-flex flex-row align-items-center gap-2">
                                     <div>
-                                        Status
+                                        B
+                                    </div>
+                                    <div class="d-flex flex-col align-items-center">
+                                        <Icon icon="bx:sort" />
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="d-flex flex-row align-items-center gap-2">
+                                    <div>
+                                        C
+                                    </div>
+                                    <div class="d-flex flex-col align-items-center">
+                                        <Icon icon="bx:sort" />
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="d-flex flex-row align-items-center gap-2">
+                                    <div>
+                                        TT
+                                    </div>
+                                    <div class="d-flex flex-col align-items-center">
+                                        <Icon icon="bx:sort" />
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="d-flex flex-row align-items-center gap-2">
+                                    <div>
+                                        Jumlah
                                     </div>
                                     <div class="d-flex flex-col align-items-center">
                                         <Icon icon="bx:sort" />
@@ -112,36 +112,14 @@ import type { Icon } from '@iconify/vue';
                         </tr>
                         <tr>
                             <td class="table-data">1.</td>
-                            <td class="npsn">P9972821</td>
-                            <td class="table-data">TKS Khairani</td>
-                            <td class="table-data">PAUD</td>
-                            <td class="table-data">Jawa Barat</td>
-                            <td class="table-data">2019</td>
-                            <td class="table-data">163/BAN PAUD DAN PNF/AKR/2019</td>
-                            <td class="table-data">B</td>
-                            <td class="table-data">2024</td>
-                        </tr>
-                        <tr>
-                            <td class="table-data">2.</td>
-                            <td class="npsn">P9972821</td>
-                            <td class="table-data">Satu Dua Tiga</td>
-                            <td class="table-data">PKBM</td>
-                            <td class="table-data">Jawa Barat</td>
-                            <td class="table-data">2019</td>
-                            <td class="table-data">163/BAN PAUD DAN PNF/AKR/2019</td>
-                            <td class="table-data">B</td>
-                            <td class="table-data">2024</td>
-                        </tr>
-                        <tr>
-                            <td class="table-data">3.</td>
-                            <td class="npsn">P9972121</td>
-                            <td class="table-data">PAUD Cinta Bunda</td>
-                            <td class="table-data">PKBM</td>
-                            <td class="table-data">Jawa Barat</td>
-                            <td class="table-data">2019</td>
-                            <td class="table-data">163/BAN PAUD DAN PNF/AKR/2019</td>
-                            <td class="table-data">B</td>
-                            <td class="table-data">2024</td>
+                            <td class="npsn">Jawa Timur</td>
+                            <td class="table-data">Semua</td>
+                            <td class="table-data">12423</td>
+                            <td class="table-data">12423</td>
+                            <td class="table-data">12423</td>
+                            <td class="table-data">12423</td>
+                            <td class="table-data">12423</td>
+                            <td class="table-data">12423</td>
                         </tr>
                     </thead>
                 </table>

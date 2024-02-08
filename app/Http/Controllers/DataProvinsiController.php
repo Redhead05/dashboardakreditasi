@@ -31,6 +31,12 @@ class DataProvinsiController extends Controller
             ->count() ?? 0;
 
 //        dd($statusa);
+
+        //table provinsi hasil akreditasi
+        $provinsi = HasilAkreditasi::select('provinsi')
+            ->groupBy('provinsi')
+            ->get();
+
         return Inertia::render('dataProvinsi',
             [
                 'statusa' => $statusa,

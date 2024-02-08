@@ -28,7 +28,9 @@
                 />
             </div>
             <div class="mt-5">
-                <TabelDatabaseAkreditasi />
+                <TabelDatabaseAkreditasi
+                    :provinsiStatusCount="provinsiStatusCount"
+                />
             </div>
         </div>
     </div>
@@ -45,6 +47,7 @@
         statusb: Number,
         statusc: Number,
         statustt: Number,
+        provinsiStatusCount: Array,
     })
 
     const selectYear = (event) => {

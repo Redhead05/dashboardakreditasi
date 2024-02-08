@@ -5,7 +5,9 @@
         <ul class="navbar-nav d-flex flex-row justify-content-end gap-4 w-100" id="navbarNav">
           <li class="nav-item d-flex flex-row align-items-center">
             <Icon icon="bxs:dashboard" />
-            <a class="nav-link" href="#">Dashboard</a>
+              <a class="nav-link">
+                  <Link href="/dashboard">Dashboard</Link>
+              </a>
           </li>
           <li class="nav-item d-flex flex-row align-items-center">
             <Icon icon="bxs:data" />
@@ -29,6 +31,7 @@
 
 <script lang="ts" setup>
     import { Link } from '@inertiajs/vue3';
+
 </script>
 <style scoped>
   nav {

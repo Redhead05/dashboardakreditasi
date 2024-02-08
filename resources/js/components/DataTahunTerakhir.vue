@@ -32,9 +32,8 @@
                   <div class="d-flex flex-row align-items-center margin_data_jumlah_asesi mb-3">
                     <Icon class="card1_circle_icon" icon="bxs:school" color="#FFFFFF" width="100" height="100"/>
                     <div class="mx-4 d-flex flex-column">
-<!--                      <div class="card3_num">{{populasis}}</div>-->
-                      <div class="card3_num" v-for="(populasi, index) in populasis" :key="index">
-                        {{ populasi.total_populasi }}
+                      <div class="card3_num">
+                          {{ populasis }}
                       </div>
                       <div class="card3_desc">Total Populasi</div>
                     </div>
@@ -42,14 +41,14 @@
                   <div class="d-flex flex-row align-items-center margin_data_jumlah_asesi">
                     <apexchart :width="widthRadialBar" type="radialBar" :options="chartOptionsRadialBar1" :series="seriesRadialBar1"></apexchart>
                     <div class="d-flex flex-column desc_data_jumlah_asesi">
-                      <div class="card3_num">{{ totalakreditasi }}</div>
+                      <div class="card3_num">{{ diakreditasis }}</div>
                       <div class="card3_desc">Di Akreditasi</div>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center margin_data_jumlah_asesi">
                     <apexchart :width="widthRadialBar" type="radialBar" :options="chartOptionsRadialBar2" :series="seriesRadialBar2"></apexchart>
                     <div class="d-flex flex-column desc_data_jumlah_asesi">
-                      <div class="card3_num">10.283</div>
+                      <div class="card3_num">{{ populasis-diakreditasis }}</div>
                       <div class="card3_desc">Belum di Akreditasi</div>
                     </div>
                   </div>
@@ -103,9 +102,8 @@
 
   const props = defineProps({
       datas : Array,
-      populasis: Array,
-      totalakreditasi: Array,
-      // belumakreditasi: Array,
+      populasis: Number,
+      diakreditasis: Number,
   })
 
   // onMounted(() => {

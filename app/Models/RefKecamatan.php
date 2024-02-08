@@ -20,4 +20,8 @@ class RefKecamatan extends Model
     {
         return $this->HasMany('App\Models\RefDesa', 'id_kecamatan', 'id_kecamatan');
     }
+    public function HasilAkreditasi(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(HasilAkreditasi::class, 'id_kecamatan', 'id_kecamatan');
+    }
 }

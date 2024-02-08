@@ -50,27 +50,44 @@ class DashboardController extends Controller
             $result['data'] = array_values($result['data']);
         }
 
-        //total_populasi
-        $populasis = Populasi::select('tahun', 'total_populasi')
-        ->where('tahun', $request->year ?? '2019')
-        ->get();
-//
-        //total di akreditasi
-        $totalakreditasi = HasilAkreditasi::select( DB::raw('COUNT(*) as count'))
-            ->where('tahun_akreditasi', $request->year ?? '2019' )
-            ->groupBy('tahun_akreditasi')
-            ->get()->toArray();
-//
-//        //belum di akreditasi
-//        $belumakreditasi = $populasis[0]->total_populasi - $totalakreditasi[0]->count;
+        //populasi
 
-//                dd($totalakreditasi->toArray());
+        $year = $request->year;
+        $populasis = Populasi::where('tahun', $year)->first();
+        if ($populasis) {
+            $populasis = $populasis->total_populasi;
+        } else {
+            $populasis = "Data Not Found";
+        }
 
+        //diakreditasi
+
+        $year = $request->year;
+        $diakreditasis = HasilAkreditasi::where('tahun_akreditasi', $year)->count();
+
+        if ($diakreditasis == 0) {
+            $diakreditasis = "Data Not Found";
+        }
+
+        //belum diakreditasi
+
+        $year = $request->year;
+
+        $populasi = Populasi::where('tahun', $year)->first();
+        $populasis = $populasi ? $populasi->total_populasi : 0;
+
+        $diakreditasis = HasilAkreditasi::where('tahun_akreditasi', $year)->count();
+
+        if (is_numeric($populasis) && is_numeric($diakreditasis)) {
+            $belumdiakreditasi = $populasis - $diakreditasis;
+        } else {
+            $belumdiakreditasi = "Data Not Found";
+        }
+//        dd($belumdiakreditasi);
         return Inertia::render('dashboard', [
             'chartGrading' => $result,
             'populasis' => $populasis,
-            'totalakreditasi' => $totalakreditasi,
-//            'belumakreditasi' => $belumakreditasi
+            'diakreditasis' => $diakreditasis,
         ]);
     }
 }

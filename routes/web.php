@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DataProvinsiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [DashboardController::class, 'index']);
+Route::get('/dataProvinsi/', [DataProvinsiController::class, 'index']);
 //Route::get('/', [DashboardController::class, 'CapaianNasional']);
 //Route::get('/test', [DashboardController::class, 'populasi']);
 

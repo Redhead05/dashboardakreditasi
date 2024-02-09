@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\CapaianSasaran;
 use App\Models\HasilAkreditasi;
 use App\Models\Populasi;
 use Illuminate\Http\Request;
@@ -17,7 +18,6 @@ class DashboardController extends Controller
         )->groupBy('satuan', 'status')
         ->where('tahun_akreditasi', $request->year ?? '2019')
         ->get();
-//        dump($capaianNasional->toArray());
         if ($capaianNasional->isEmpty()) {
             $result[] = [
                 'category' => [],
@@ -71,23 +71,41 @@ class DashboardController extends Controller
 
         //belum diakreditasi
 
-        $year = $request->year;
+        //CapaianSasaran
+        $year = $request->input('year', date('Y')); // Use the current year as default if 'year' is not provided
 
-        $populasi = Populasi::where('tahun', $year)->first();
-        $populasis = $populasi ? $populasi->total_populasi : 0;
+        $capaianSasaran = CapaianSasaran::whereHas('refTahun', function ($query) use ($year) {
+            $query->where('tahun', $year);
+        })->get();
 
-        $diakreditasis = HasilAkreditasi::where('tahun_akreditasi', $year)->count();
+        // Prepare the data in the format expected by the Vue component
+        $capaianSasaranData = $capaianSasaran->map(function ($record) {
+            return [
+                [
+                    'Color' => 'var(--color_primary_normal)', // Hardcoded value
+                    'Total' => $record->total_sasaran, // Fetched from the database
+                    'Desc' => 'Total Sasaran', // Hardcoded value
+                ],
+                [
+                    'Color' => 'var(--color_primary_normal)', // Hardcoded value
+                    'Total' => $record->akreditasi_baru, // Fetched from the database
+                    'Desc' => 'Total Sasaran', // Hardcoded value
+                ],
+                [
+                    'Color' => 'var(--color_primary_normal)', // Hardcoded value
+                    'Total' => $record->Reakreditasi, // Fetched from the database
+                    'Desc' => 'Total Sasaran', // Hardcoded value
+                ],
 
-        if (is_numeric($populasis) && is_numeric($diakreditasis)) {
-            $belumdiakreditasi = $populasis - $diakreditasis;
-        } else {
-            $belumdiakreditasi = "Data Not Found";
-        }
-//        dd($belumdiakreditasi);
-        return Inertia::render('dashboard', [
-            'chartGrading' => $result,
-            'populasis' => $populasis,
-            'diakreditasis' => $diakreditasis,
-        ]);
+            ];
+        })->toArray();
+
+                dd($capaianSasaranData)->toArray();
+//        return Inertia::render('dashboard', [
+//            'chartGrading' => $result,
+//            'populasis' => $populasis,
+//            'diakreditasis' => $diakreditasis,
+//            'capaianSasaran' => $capaianSasaranData,
+//        ]);
     }
 }

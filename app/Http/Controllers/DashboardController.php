@@ -12,11 +12,12 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
+        $year = $request->input('year', date('Y'));
         $result = [];
         $capaianNasional = HasilAkreditasi::selectRaw(
             'satuan, status, COUNT(*) as count'
         )->groupBy('satuan', 'status')
-        ->where('tahun_akreditasi', $request->year ?? '2019')
+        ->where('tahun_akreditasi', $year)
         ->get();
         if ($capaianNasional->isEmpty()) {
             $result[] = [
@@ -72,29 +73,29 @@ class DashboardController extends Controller
         //belum diakreditasi
 
         //CapaianSasaran
-        $year = $request->input('year', date('Y')); // Use the current year as default if 'year' is not provided
+        $year = $request->input('year', date('Y'));
 
         $capaianSasaran = CapaianSasaran::whereHas('refTahun', function ($query) use ($year) {
             $query->where('tahun', $year);
         })->get();
 
-        // Prepare the data in the format expected by the Vue component
+
         $capaianSasaranData = $capaianSasaran->map(function ($record) {
             return [
                 [
-                    'Color' => 'var(--color_primary_normal)', // Hardcoded value
-                    'Total' => $record->total_sasaran, // Fetched from the database
-                    'Desc' => 'Total Sasaran', // Hardcoded value
+                    'Color' => 'var(--color_primary_normal)',
+                    'Total' => $record->total_sasaran,
+                    'Desc' => 'Total Sasaran',
                 ],
                 [
-                    'Color' => 'var(--color_primary_normal)', // Hardcoded value
-                    'Total' => $record->akreditasi_baru, // Fetched from the database
-                    'Desc' => 'Total Sasaran', // Hardcoded value
+                    'Color' => 'var(--color_primary_normal)',
+                    'Total' => $record->akreditasi_baru,
+                    'Desc' => 'Total Sasaran',
                 ],
                 [
-                    'Color' => 'var(--color_primary_normal)', // Hardcoded value
-                    'Total' => $record->Reakreditasi, // Fetched from the database
-                    'Desc' => 'Total Sasaran', // Hardcoded value
+                    'Color' => 'var(--color_primary_normal)',
+                    'Total' => $record->Reakreditasi,
+                    'Desc' => 'Total Sasaran',
                 ],
 
             ];

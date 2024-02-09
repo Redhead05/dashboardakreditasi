@@ -9,11 +9,13 @@
           <option value="2">Two</option>
           <option value="3">Three</option>
         </select>
-          <select @change="selectYear" class="form-select">
+          <select @change="selectYear" class="form-select" v-model="currentYear">
               <option>2019</option>
               <option>2020</option>
               <option>2021</option>
               <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
           </select>
       </div>
     </div>
@@ -195,6 +197,9 @@
     80,15,100
   ];
 
+  let urlParams = new URLSearchParams(window.location.search);
+  let yearFromUrl = urlParams.get('year');
+  let currentYear = yearFromUrl ? yearFromUrl : new Date().getFullYear();
   const selectYear = (event) => {
       const selectedYear = event.target.value;
       const currentUrl = window.location.href;

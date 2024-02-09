@@ -10,6 +10,7 @@ import {onMounted} from "vue";
         statusb: Number,
         statusc: Number,
         statustt: Number,
+        provinsiStatusCount: Array,
 
     })
 
@@ -28,6 +29,7 @@ import {onMounted} from "vue";
             :statusb="statusb"
             :statusc="statusc"
             :statustt="statustt"
+            :provinsiStatusCount="provinsiStatusCount"
         />
         <BottomNavBar />
     </div>

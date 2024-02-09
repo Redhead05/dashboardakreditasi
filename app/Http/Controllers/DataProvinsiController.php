@@ -33,9 +33,29 @@ class DataProvinsiController extends Controller
 //        dd($statusa);
 
         //table provinsi hasil akreditasi
-        $provinsi = HasilAkreditasi::select('provinsi')
-            ->groupBy('provinsi')
+        $year = $request->year;
+
+        $provinsiCount = HasilAkreditasi::selectRaw('provinsi, status, COUNT(*) as count')
+            ->where('tahun_akreditasi', $year)
+            ->groupBy('provinsi', 'status')
             ->get();
+
+        $provinsiStatusCount = $provinsiCount->groupBy('provinsi')->map(function ($items, $provinsi) {
+            $statusCounts = [
+                'A' => 0,
+                'B' => 0,
+                'C' => 0,
+                'TT' => 0,
+            ];
+
+            foreach ($items as $item) {
+                $statusCounts[$item->status] = $item->count;
+            }
+
+            return array_merge(['provinsi' => $provinsi], $statusCounts);
+        })->values();
+
+//        dd($provinsiStatusCount->toArray());
 
         return Inertia::render('dataProvinsi',
             [
@@ -43,6 +63,7 @@ class DataProvinsiController extends Controller
                 'statusb' => $statusb,
                 'statusc' => $statusc,
                 'statustt' => $statustt,
+                'provinsiStatusCount' => $provinsiStatusCount,
             ]
         );
     }

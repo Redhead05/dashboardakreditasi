@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/dataProvinsi/', [DataProvinsiController::class, 'index']);
 //Route::get('/', [DashboardController::class, 'CapaianNasional']);
 //Route::get('/test', [DashboardController::class, 'populasi']);

@@ -11,12 +11,7 @@ class RefKota extends Model
 
 
     protected $table = 'ref_kotas';
-//    protected $fields = [
-//        'id_kota',
-//        'id_provinsi',
-//        'nama',
-//        'slug',
-//    ];
+
 
     public function RefProvinsi(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

@@ -110,14 +110,17 @@ import type { Icon } from '@iconify/vue';
                                 </div>
                             </th>
                         </tr>
-                        <tr>
-                            <td class="table-data">1.</td>
-                            <td class="npsn">Jawa Timur</td>
+                        <tr v-for="(item, index) in provinsiStatusCount" :key="index">
+
+                            <td class="table-data">{{ index + 1 }}.</td>
+                            <td class="npsn">
+                                <inertia-link :href="`/path/to/${item.provinsi}`">{{ item.provinsi }}</inertia-link>
+                            </td>
                             <td class="table-data">Semua</td>
-                            <td class="table-data">12423</td>
-                            <td class="table-data">12423</td>
-                            <td class="table-data">12423</td>
-                            <td class="table-data">12423</td>
+                            <td class="table-data">{{ item.A }}</td>
+                            <td class="table-data">{{ item.B }}</td>
+                            <td class="table-data">{{ item.C }}</td>
+                            <td class="table-data">{{ item.TT }}</td>
                             <td class="table-data">12423</td>
                             <td class="table-data">12423</td>
                         </tr>
@@ -138,6 +141,11 @@ import type { Icon } from '@iconify/vue';
 </template>
 
 <script lang="ts" setup>
+import { defineProps } from 'vue';
+import { Icon } from '@iconify/vue';
+const props = defineProps({
+    provinsiStatusCount: Array,
+})
 
 </script>
 

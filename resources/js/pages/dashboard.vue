@@ -6,18 +6,24 @@
     import RiwayatAkreditasi from '@/components/RiwayatAkreditasi.vue';
     import PerbandinganData from '@/components/PerbandinganData.vue';
     import BottomNavBar from '@/components/BottomNavBar.vue';
-    import {onMounted} from "vue";
+    import {onMounted, watch} from "vue";
 
     const props = defineProps({
         chartGrading : Array,
         populasis: Number,
-        diakreditasis: Number
+        diakreditasis: Number,
+        capaianSasaranData: Array,
     })
 
-// onMounted(() => {
-//     // console.log(props.chartGrading);
-//     // console.log(props.sumKuotas);
-//     console.log(props.populasis);
+    // onMounted(() => {
+// //     // console.log(props.chartGrading);
+// //     // console.log(props.sumKuotas);
+// //     console.log(props.populasis);
+//     if (props.capaianSasaranData && props.capaianSasaranData.length > 0) {
+//         console.log('capaianSasaran has data');
+//     } else {
+//         console.log('capaianSasaran does not have data');
+//     }
 //   })
 
 </script>
@@ -30,6 +36,7 @@
         :datas="chartGrading"
         :populasis="populasis"
         :diakreditasis="diakreditasis"
+        :capaianSasaranData="capaianSasaranData"
     />
     <DataTahunBerjalan  />
     <RiwayatAkreditasi />

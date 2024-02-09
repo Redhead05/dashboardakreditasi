@@ -104,6 +104,7 @@
       datas : Array,
       populasis: Number,
       diakreditasis: Number,
+      capaianSasaran: Array,
   })
 
   // onMounted(() => {
@@ -191,7 +192,7 @@
     colors: colorsDonut
   }
   const seriesDonut = [
-    80,15,5
+    80,15,100
   ];
 
   const selectYear = (event) => {

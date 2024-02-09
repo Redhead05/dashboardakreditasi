@@ -18,7 +18,7 @@
 
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://dashboardakreditasissss.vercel.app",
+        "APP_URL": "https://dashboardakreditasissssi.vercel.app",
         "APP_KEY": "base64:rUbxawuiI1Z6TOd1zSnHYbwj7lR8qwo+HZa4faCU7Ow=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",

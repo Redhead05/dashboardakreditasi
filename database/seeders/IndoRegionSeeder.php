@@ -24,5 +24,11 @@ class IndoRegionSeeder extends Seeder
         $this->call(IndoRegionRegencySeeder::class);
         $this->call(IndoRegionDistrictSeeder::class);
         $this->call(IndoRegionVillageSeeder::class);
+
+        $this->call(PopulasiSeeder::class);
+        $this->call(HasilAkreditasiSeeder::class);
+
+        $this->call(RefTahunSeeder::class);
+        $this->call(CapaianSasaranSeeder::class);
     }
 }

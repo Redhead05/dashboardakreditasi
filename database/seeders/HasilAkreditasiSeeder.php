@@ -26,7 +26,7 @@ class HasilAkreditasiSeeder extends Seeder
             HasilAkreditasi::create([
                 'npsn' => random_int(10000000, 99999999),
                 'nama_lembaga' => Str::random(10),
-                'satuan' => Str::random(6),
+                'satuan' => ['PAUD', 'TK/KB', 'SD', 'SMP', 'SMA'][array_rand(['PAUD', 'TK/KB', 'SD', 'SMP', 'SMA'])],
                 'program' => Str::random(10),
                 'alamat' => Str::random(10),
                 'id_desa' => $desa->id_desa,

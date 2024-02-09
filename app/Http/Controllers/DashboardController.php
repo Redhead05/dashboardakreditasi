@@ -100,12 +100,12 @@ class DashboardController extends Controller
             ];
         })->toArray();
 
-                dd($capaianSasaranData)->toArray();
-//        return Inertia::render('dashboard', [
-//            'chartGrading' => $result,
-//            'populasis' => $populasis,
-//            'diakreditasis' => $diakreditasis,
-//            'capaianSasaran' => $capaianSasaranData,
-//        ]);
+//                dd($capaianSasaranData)->toArray();
+        return Inertia::render('dashboard', [
+            'chartGrading' => $result,
+            'populasis' => $populasis,
+            'diakreditasis' => $diakreditasis,
+            'capaianSasaran' => $capaianSasaranData,
+        ]);
     }
 }

@@ -193,9 +193,9 @@
     },
     colors: colorsDonut
   }
-  const seriesDonut = [
-    80,15,100
-  ];
+  const precentageAkreditasiBaru = 10837/14876 * 100;
+  const precentageReakreditasi = 4983/14876 * 100;
+  const seriesDonut = [precentageAkreditasiBaru,precentageReakreditasi];
 
   let urlParams = new URLSearchParams(window.location.search);
   let yearFromUrl = urlParams.get('year');
@@ -206,9 +206,12 @@
 
       const url = new URL(currentUrl);
       url.searchParams.set('year', selectedYear);
+      window.history.pushState({}, '', url.toString());
+
       window.location.href =  url.toString();
       window.history.replaceState({}, '', url.toString());
-  };
+
+  }
 </script>
 
 <style scoped>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\CapaianSasaran;
+use App\Models\DataTahunBerjalan;
 use App\Models\HasilAkreditasi;
 use App\Models\Populasi;
 use Illuminate\Http\Request;
@@ -101,12 +102,35 @@ class DashboardController extends Controller
             ];
         })->toArray();
 
-//                dd($capaianSasaranData)->toArray();
+        //data tahun berjalan
+        $year = $request->input('year', date('Y'));
+        $results = [];
+        $dataTahunBerjalan = DataTahunBerjalan::select('sasaran', 'kadaluarsa', 'potensi')
+            ->whereHas('refTahun', function ($query) use ($year) {
+                $query->where('tahun', $year);
+            })
+            ->get();
+
+        if ($dataTahunBerjalan->isEmpty()) {
+            $results[] = [
+                'sasaran' => [],
+                'kadaluarsa' => [],
+                'potensi' => [],
+            ];
+        } else {
+            $results['sasaran'] = array_combine([0], $dataTahunBerjalan->pluck('sasaran')->toArray());
+            $results['kadaluarsa'] = array_combine([1], $dataTahunBerjalan->pluck('kadaluarsa')->toArray());
+            $results['potensi'] = array_combine([2], $dataTahunBerjalan->pluck('potensi')->toArray());
+        }
+
+//        dd($dataTahunBerjalan->toArray());
+
         return Inertia::render('dashboard', [
             'chartGrading' => $result,
             'populasis' => $populasis,
             'diakreditasis' => $diakreditasis,
             'capaianSasaran' => $capaianSasaranData,
+            'dataTahunBerjalan' => $results,
         ]);
     }
 }

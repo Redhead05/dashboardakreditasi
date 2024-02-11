@@ -12,7 +12,9 @@
         chartGrading : Array,
         populasis: Number,
         diakreditasis: Number,
-        capaianSasaranData: Array,
+        dataTahunBerjalan: Object,
+
+
     })
 
     // onMounted(() => {
@@ -36,9 +38,10 @@
         :datas="chartGrading"
         :populasis="populasis"
         :diakreditasis="diakreditasis"
-        :capaianSasaranData="capaianSasaranData"
     />
-    <DataTahunBerjalan  />
+    <DataTahunBerjalan
+        :dataTahunBerjalan="dataTahunBerjalan"
+    />
     <RiwayatAkreditasi />
     <PerbandinganData />
     <BottomNavBar />

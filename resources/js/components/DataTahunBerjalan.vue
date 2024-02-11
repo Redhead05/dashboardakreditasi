@@ -15,7 +15,7 @@
             <div class="col-sm-4">
                 <div class="card position-relative">
                     <div class="dataLabels_chart d-flex flex-column align-items-center justify-content-center">
-                        <div class="dataLabels_Total">123</div>
+                        <div class="dataLabels_Total">{{total[0]}}</div>
                         <div class="dataLabels_Lembaga">Lembaga</div>
                     </div>
                     <apexchart :width="width" type="radialBar" :options="chartOptionsRadialBar1" :series="seriesRadialBar1"></apexchart>
@@ -47,9 +47,14 @@
 </template>
 
 <script lang="ts" setup>
+const props = defineProps({
+  dataTahunBerjalan: Object,
+})
+
 const width = 420;
 const hollowSize = '50%';
-const total = ['40.094','12.094','10.091'];
+// const total = ['40.094','12.094','10.091'];
+const total = [props.dataTahunBerjalan.sasaran[0], props.dataTahunBerjalan.kadaluarsa[1], props.dataTahunBerjalan.potensi[2]];
 const chartOptionsRadialBar1 = {
     colors: ['var(--color_dikbud_3)'],
     plotOptions: {
@@ -68,7 +73,9 @@ const chartOptionsRadialBar1 = {
         },
     },
 }
-const seriesRadialBar1 = [100]
+const precentageRadialBar1 = props.dataTahunBerjalan.sasaran/237646 * 100;
+// console.log(precentageRadialBar1);
+const seriesRadialBar1 = [precentageRadialBar1]
 const chartOptionsRadialBar2 = {
     colors: ['var(--color_dikbud_5)'],
     plotOptions: {
@@ -150,3 +157,4 @@ const seriesRadialBar3 = [100]
     }
 }
 </style>
+

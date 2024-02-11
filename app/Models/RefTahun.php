@@ -15,4 +15,9 @@ class RefTahun extends Model
     {
         return $this->hasMany(CapaianSasaran::class, 'ref_tahun_id', 'id');
     }
+
+    public function dataTahunBerjalans(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(DataTahunBerjalan::class, 'ref_tahun_id', 'id');
+    }
 }

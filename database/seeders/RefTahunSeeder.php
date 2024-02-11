@@ -26,6 +26,12 @@ class RefTahunSeeder extends Seeder
             [
                 'tahun' => '2022',
             ],
+            [
+                'tahun' => '2023',
+            ],
+            [
+                'tahun' => '2024',
+            ],
             // Add more data as needed
         ];
 

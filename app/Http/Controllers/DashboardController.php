@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\CapaianSasaran;
+use App\Models\DataTahunBerjalan;
 use App\Models\HasilAkreditasi;
 use App\Models\Populasi;
 use Illuminate\Http\Request;
@@ -11,13 +13,13 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
+        $year = $request->input('year', date('Y'));
         $result = [];
         $capaianNasional = HasilAkreditasi::selectRaw(
             'satuan, status, COUNT(*) as count'
         )->groupBy('satuan', 'status')
-        ->where('tahun_akreditasi', $request->year ?? '2019')
+        ->where('tahun_akreditasi', $year)
         ->get();
-//        dump($capaianNasional->toArray());
         if ($capaianNasional->isEmpty()) {
             $result[] = [
                 'category' => [],
@@ -71,23 +73,64 @@ class DashboardController extends Controller
 
         //belum diakreditasi
 
-        $year = $request->year;
+        //CapaianSasaran
+        $year = $request->input('year', date('Y'));
 
-        $populasi = Populasi::where('tahun', $year)->first();
-        $populasis = $populasi ? $populasi->total_populasi : 0;
+        $capaianSasaran = CapaianSasaran::whereHas('refTahun', function ($query) use ($year) {
+            $query->where('tahun', $year);
+        })->get();
 
-        $diakreditasis = HasilAkreditasi::where('tahun_akreditasi', $year)->count();
 
-        if (is_numeric($populasis) && is_numeric($diakreditasis)) {
-            $belumdiakreditasi = $populasis - $diakreditasis;
+        $capaianSasaranData = $capaianSasaran->map(function ($record) {
+            return [
+                [
+                    'Color' => 'var(--color_primary_normal)',
+                    'Total' => $record->total_sasaran,
+                    'Desc' => 'Total Sasaran',
+                ],
+                [
+                    'Color' => 'var(--color_primary_normal)',
+                    'Total' => $record->akreditasi_baru,
+                    'Desc' => 'Total Sasaran',
+                ],
+                [
+                    'Color' => 'var(--color_primary_normal)',
+                    'Total' => $record->Reakreditasi,
+                    'Desc' => 'Total Sasaran',
+                ],
+
+            ];
+        })->toArray();
+
+        //data tahun berjalan
+        $year = $request->input('year', date('Y'));
+        $results = [];
+        $dataTahunBerjalan = DataTahunBerjalan::select('sasaran', 'kadaluarsa', 'potensi')
+            ->whereHas('refTahun', function ($query) use ($year) {
+                $query->where('tahun', $year);
+            })
+            ->get();
+
+        if ($dataTahunBerjalan->isEmpty()) {
+            $results[] = [
+                'sasaran' => [],
+                'kadaluarsa' => [],
+                'potensi' => [],
+            ];
         } else {
-            $belumdiakreditasi = "Data Not Found";
+            $results['sasaran'] = array_combine([0], $dataTahunBerjalan->pluck('sasaran')->toArray());
+            $results['kadaluarsa'] = array_combine([1], $dataTahunBerjalan->pluck('kadaluarsa')->toArray());
+            $results['potensi'] = array_combine([2], $dataTahunBerjalan->pluck('potensi')->toArray());
         }
-//        dd($belumdiakreditasi);
+
+//        dd($dataTahunBerjalan->toArray());
+
         return Inertia::render('dashboard', [
             'chartGrading' => $result,
             'populasis' => $populasis,
             'diakreditasis' => $diakreditasis,
+            'capaianSasaran' => $capaianSasaranData,
+            'dataTahunBerjalan' => $results,
         ]);
     }
 }

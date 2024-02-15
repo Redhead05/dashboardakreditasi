@@ -30,5 +30,6 @@ class IndoRegionSeeder extends Seeder
 
         $this->call(RefTahunSeeder::class);
         $this->call(CapaianSasaranSeeder::class);
+        $this->call(DataTahunberjalanSeeder::class);
     }
 }

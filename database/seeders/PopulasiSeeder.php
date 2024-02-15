@@ -30,6 +30,14 @@ class PopulasiSeeder extends Seeder
                 'tahun' => '2022',
                 'total_populasi' => '1200000',
             ],
+            [
+                'tahun' => '2023',
+                'total_populasi' => '45000',
+            ],
+            [
+                'tahun' => '2024',
+                'total_populasi' => '50000',
+            ],
             // Add more data as needed
         ];
 

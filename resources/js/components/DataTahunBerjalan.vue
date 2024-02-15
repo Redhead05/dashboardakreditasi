@@ -54,6 +54,7 @@ const props = defineProps({
 const width = 420;
 const hollowSize = '50%';
 // const total = ['40.094','12.094','10.091'];
+// const total = [props.dataTahunBerjalan.sasaran[0], props.dataTahunBerjalan.kadaluarsa[1], props.dataTahunBerjalan.potensi[2]];
 const total = [props.dataTahunBerjalan.sasaran[0], props.dataTahunBerjalan.kadaluarsa[1], props.dataTahunBerjalan.potensi[2]];
 const chartOptionsRadialBar1 = {
     colors: ['var(--color_dikbud_3)'],
@@ -73,9 +74,10 @@ const chartOptionsRadialBar1 = {
         },
     },
 }
-const precentageRadialBar1 = props.dataTahunBerjalan.sasaran/237646 * 100;
+const precentageRadialBar1 = props.dataTahunBerjalan.sasaran[0]/237646 * 100;
 // console.log(precentageRadialBar1);
 const seriesRadialBar1 = [precentageRadialBar1]
+// const seriesRadialBar1 = [100]
 const chartOptionsRadialBar2 = {
     colors: ['var(--color_dikbud_5)'],
     plotOptions: {
@@ -94,7 +96,7 @@ const chartOptionsRadialBar2 = {
         },
     },
 }
-const seriesRadialBar2 = [100]
+const seriesRadialBar2 = [props.dataTahunBerjalan.kadaluarsa[1]/237646 * 100]
 const chartOptionsRadialBar3 = {
     colors: ['var(--color_dikbud_2)'],
     plotOptions: {
@@ -113,7 +115,8 @@ const chartOptionsRadialBar3 = {
         },
     },
 }
-const seriesRadialBar3 = [100]
+// const seriesRadialBar3 = [100]
+const seriesRadialBar3 = [props.dataTahunBerjalan.potensi[2]/237646 * 100]
 </script>
 
 <style scoped>

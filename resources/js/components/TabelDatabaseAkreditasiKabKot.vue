@@ -1,6 +1,5 @@
 <script lang="ts">
 import type { Icon } from '@iconify/vue';
-
 </script>
 
 
@@ -100,20 +99,30 @@ import type { Icon } from '@iconify/vue';
                                 </div>
                             </div>
                         </th>
-
+                        <th>
+                            <div class="d-flex flex-row align-items-center gap-2">
+                                <div>
+                                    Kadaluarsa
+                                </div>
+                                <div class="d-flex flex-col align-items-center">
+                                    <Icon icon="bx:sort" />
+                                </div>
+                            </div>
+                        </th>
                     </tr>
                     <tr v-for="(item, index) in provinsiStatusCount" :key="index">
 
                         <td class="table-data">{{ index + 1 }}.</td>
                         <td class="npsn">
-                            <inertia-link :href="`/TabelDatabaseAkreditasikabkot/${item.provinsi}`">{{ item.provinsi }}</inertia-link>
+                            <inertia-link :href="`/path/to/${item.provinsi}`">{{ item.provinsi }}</inertia-link>
                         </td>
                         <td class="table-data">Semua</td>
                         <td class="table-data">{{ item.A }}</td>
                         <td class="table-data">{{ item.B }}</td>
                         <td class="table-data">{{ item.C }}</td>
                         <td class="table-data">{{ item.TT }}</td>
-                        <td class="table-data">{{ item.statuscount }}</td>
+                        <td class="table-data">12423</td>
+                        <td class="table-data">12423</td>
                     </tr>
                     </thead>
                 </table>

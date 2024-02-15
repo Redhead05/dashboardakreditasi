@@ -21,10 +21,7 @@
             </div>
             <div class="d-flex flex-row justify-content-around gap-2">
                 <CardTotalData
-                    :statusa="statusa"
-                    :statusb="statusb"
-                    :statusc="statusc"
-                    :statustt="statustt"
+                        :provinsiStatusCount="provinsiStatusCount"
                 />
             </div>
             <div class="mt-5">
@@ -43,10 +40,6 @@
 
 
     const props = defineProps({
-        statusa: Number,
-        statusb: Number,
-        statusc: Number,
-        statustt: Number,
         provinsiStatusCount: Array,
     })
 

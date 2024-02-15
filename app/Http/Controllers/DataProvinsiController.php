@@ -10,29 +10,6 @@ class DataProvinsiController extends Controller
 {
     public function index(Request $request)
     {
-        //status A
-            $year = $request->year;
-            $statusa = HasilAkreditasi::where('status', 'A')
-            ->where('tahun_akreditasi', $year)
-            ->count() ?? 0;
-
-        //status B
-            $statusb = HasilAkreditasi::where('status', 'B')
-                ->where('tahun_akreditasi', $year)
-                ->count() ?? 0;
-        //status C
-        $statusc = HasilAkreditasi::where('status', 'C')
-            ->where('tahun_akreditasi', $year)
-            ->count() ?? 0;
-
-        //status TT
-        $statustt = HasilAkreditasi::where('status', 'TT')
-            ->where('tahun_akreditasi', $year)
-            ->count() ?? 0;
-
-//        dd($statusa);
-
-        //table provinsi hasil akreditasi
         $year = $request->year;
 
         $provinsiCount = HasilAkreditasi::selectRaw('provinsi, status, COUNT(*) as count')
@@ -52,17 +29,17 @@ class DataProvinsiController extends Controller
                 $statusCounts[$item->status] = $item->count;
             }
 
+            $statusCounts['statuscount'] = $statusCounts['A'] +
+                $statusCounts['B'] +
+                $statusCounts['C'] +
+                $statusCounts['TT'];
+
             return array_merge(['provinsi' => $provinsi], $statusCounts);
         })->values();
 
-//        dd($provinsiStatusCount->toArray());
 
         return Inertia::render('dataProvinsi',
             [
-                'statusa' => $statusa,
-                'statusb' => $statusb,
-                'statusc' => $statusc,
-                'statustt' => $statustt,
                 'provinsiStatusCount' => $provinsiStatusCount,
             ]
         );

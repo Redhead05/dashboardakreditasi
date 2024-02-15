@@ -6,10 +6,6 @@ import BottomNavBar from '../components/BottomNavBar.vue';
 import {onMounted} from "vue";
 
     const props = defineProps({
-        statusa: Number,
-        statusb: Number,
-        statusc: Number,
-        statustt: Number,
         provinsiStatusCount: Array,
 
     })
@@ -25,10 +21,6 @@ import {onMounted} from "vue";
         <TopNavBar />
         <Search />
         <DataProvinsi
-            :statusa="statusa"
-            :statusb="statusb"
-            :statusc="statusc"
-            :statustt="statustt"
             :provinsiStatusCount="provinsiStatusCount"
         />
         <BottomNavBar />

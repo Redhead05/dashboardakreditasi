@@ -3,7 +3,7 @@
         <div class="d-flex flex">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ statusa }}</h5>
+                    <h5 class="card-title">{{ provinsiStatusCount[0].A }}</h5>
                     <p class="card-text">Status Akreditasi A</p>
                 </div>
             </div>
@@ -11,7 +11,7 @@
         <div class="d-flex flex">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ statusb }}</h5>
+                    <h5 class="card-title">{{ provinsiStatusCount[1].B }}</h5>
                     <p class="card-text">Status Akreditasi B</p>
                 </div>
             </div>
@@ -19,7 +19,7 @@
         <div class="d-flex flex">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ statusc }}</h5>
+                    <h5 class="card-title">{{ provinsiStatusCount[2].C }}</h5>
                     <p class="card-text">Status Akreditasi C</p>
                 </div>
             </div>
@@ -27,7 +27,7 @@
         <div class="d-flex flex">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ statustt }}</h5>
+                    <h5 class="card-title">{{ provinsiStatusCount[3].TT }}</h5>
                     <p class="card-text">Status Akreditasi TT</p>
                 </div>
             </div>
@@ -36,10 +36,7 @@
 </template>
 <script lang="ts" setup>
     const props = defineProps({
-        statusa: Number,
-        statusb: Number,
-        statusc: Number,
-        statustt: Number,
+      provinsiStatusCount: Array,
     })
 </script>
 

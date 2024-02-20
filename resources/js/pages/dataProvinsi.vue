@@ -7,7 +7,7 @@ import {onMounted} from "vue";
 
     const props = defineProps({
         provinsiStatusCount: Array,
-
+        setCard: Object,
     })
 
     // onMounted(() => {
@@ -22,6 +22,7 @@ import {onMounted} from "vue";
         <Search />
         <DataProvinsi
             :provinsiStatusCount="provinsiStatusCount"
+            :setCard="setCard"
         />
         <BottomNavBar />
     </div>

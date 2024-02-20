@@ -10,6 +10,7 @@ class DataProvinsiController extends Controller
 {
     public function index(Request $request)
     {
+        //datatable provinsi
         $year = $request->year;
 
         $provinsiCount = HasilAkreditasi::selectRaw('provinsi, status, COUNT(*) as count')
@@ -37,10 +38,28 @@ class DataProvinsiController extends Controller
             return array_merge(['provinsi' => $provinsi], $statusCounts);
         })->values();
 
+        //cardTotalData
+        $setCard = [
+            'A' => 0,
+            'B' => 0,
+            'C' => 0,
+            'TT' => 0,
+        ];
 
+        $statusCount = HasilAkreditasi::selectRaw('status, COUNT(*) as count')
+            ->where('tahun_akreditasi', $year)
+            ->groupBy('status')
+            ->get();
+
+        foreach ($statusCount as $item) {
+            $setCard [$item->status] = $item->count;
+
+        }
+//        dd($statusCount->toArray());
         return Inertia::render('dataProvinsi',
             [
                 'provinsiStatusCount' => $provinsiStatusCount,
+                'setCard' => $setCard,
             ]
         );
     }

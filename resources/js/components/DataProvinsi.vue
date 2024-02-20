@@ -22,6 +22,7 @@
             <div class="d-flex flex-row justify-content-around gap-2">
                 <CardTotalData
                         :provinsiStatusCount="provinsiStatusCount"
+                        :setCard="setCard"
                 />
             </div>
             <div class="mt-5">
@@ -41,6 +42,7 @@
 
     const props = defineProps({
         provinsiStatusCount: Array,
+        setCard: Object,
     })
 
     const selectYear = (event) => {
